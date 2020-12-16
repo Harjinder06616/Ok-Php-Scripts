@@ -1,0 +1,15 @@
+<?php
+   $con=mysqli_connect("localhost","shayari1_shayaridata","Sherusukha@708","shayari1_shayaridata");
+  
+   $username = $_POST['username'];
+   $image = $_POST['image'];
+   filename = "IMAGES".rand().".jpg";
+   filename_put_contents("images/".$filename,base64_decode($image));
+   qry= " INSERT INTO 'imagespost'('id','username',image') VALUES (NULL,'$username','$filename')";
+   $res = mysqli_query($con,$qry);
+   If ($res==true)
+   echo  "File Uploaded Successful";
+   else
+   echo "Could not upload file";
+
+?>
